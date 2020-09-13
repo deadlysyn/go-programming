@@ -36,4 +36,19 @@ func main() {
 	for _, v := range p2.iceCreams {
 		fmt.Printf("\t%v\n", v)
 	}
+
+	people := map[string]person{
+		p1.first: p1,
+		p2.first: p2,
+	}
+
+	fmt.Println(people[p1.first])
+	for i, v := range people[p1.first].iceCreams {
+		fmt.Println(i, v)
+	}
+
+	fmt.Println(people[p2.first])
+	for i, v := range people[p2.first].iceCreams {
+		fmt.Println(i, v)
+	}
 }
