@@ -21,6 +21,12 @@ func main() {
 		},
 	}
 
+	m["some_body"] = []string{
+		"Foo",
+		"Bar",
+		"Baz",
+	}
+
 	for k, v := range m {
 		fmt.Printf("%v:\n", k)
 		for i, s := range v {
@@ -28,4 +34,12 @@ func main() {
 		}
 	}
 
+	delete(m, "some_body")
+
+	for k, v := range m {
+		fmt.Printf("%v:\n", k)
+		for i, s := range v {
+			fmt.Printf("\t%v\t%v\n", i, s)
+		}
+	}
 }
