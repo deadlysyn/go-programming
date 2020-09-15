@@ -14,7 +14,7 @@ type circle struct {
 }
 
 func (s square) area() float64 {
-	return 2 * s.side
+	return s.side * s.side
 }
 
 func (c circle) area() float64 {
