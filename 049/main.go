@@ -2,12 +2,15 @@ package main
 
 import (
 	"fmt"
+	"runtime"
 	"sync"
 )
 
-var wg sync.WaitGroup
-
 func main() {
+	fmt.Println("CPUs:", runtime.NumCPU())
+	fmt.Println("Start goroutines:", runtime.NumGoroutine())
+
+	var wg sync.WaitGroup
 	wg.Add(2)
 
 	go func() {
@@ -20,5 +23,8 @@ func main() {
 		wg.Done()
 	}()
 
+	fmt.Println("Middle goroutines:", runtime.NumGoroutine())
+
 	wg.Wait()
+	fmt.Println("End goroutines:", runtime.NumGoroutine())
 }
