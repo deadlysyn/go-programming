@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"runtime"
 	"sync"
 )
 
@@ -20,11 +19,10 @@ func main() {
 		go func() {
 			mu.Lock()
 			v := count
-			runtime.Gosched()
 			v++
 			count = v
-			wg.Done()
 			mu.Unlock()
+			wg.Done()
 		}()
 	}
 
