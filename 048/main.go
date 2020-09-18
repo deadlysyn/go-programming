@@ -55,10 +55,10 @@ func main() {
 	sort.Slice(users, func(i, j int) bool { return users[i].Last < users[j].Last })
 	fmt.Println("By name:", users)
 
-	for k := range users {
-		fmt.Println("Sayings for", users[k].First, users[k].Last)
-		sort.Slice(users[k].Sayings, func(i, j int) bool { return users[k].Sayings[i] < users[k].Sayings[j] })
-		for _, v := range users[k].Sayings {
+	for i := range users {
+		fmt.Println("Sayings for", users[i].First, users[i].Last)
+		sort.Strings(users[i].Sayings)
+		for _, v := range users[i].Sayings {
 			fmt.Printf("\t%v\n", v)
 		}
 	}
