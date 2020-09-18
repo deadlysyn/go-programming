@@ -27,4 +27,7 @@ func main() {
 	// we can NOT pass type person into saySomething
 	// (since it has a pointer receiver)
 	// saySomething(p)
+
+	// also works
+	p.speak()
 }
