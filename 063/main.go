@@ -26,7 +26,6 @@ func main() {
 
 	bs, err := toJSON(p1)
 	if err != nil {
-		err := fmt.Errorf("JSON marshal failed: %v", err)
 		log.Fatal(err)
 	}
 	fmt.Println(string(bs))
@@ -36,6 +35,7 @@ func toJSON(a interface{}) ([]byte, error) {
 	bs, err := json.Marshal(a)
 	err = errors.New("test error")
 	if err != nil {
+		err := fmt.Errorf("toJSON marshal failed: %v", err)
 		return nil, err
 	}
 	return bs, nil
