@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 )
 
 type person struct {
@@ -25,7 +26,7 @@ func main() {
 	// don't throw away the error, check them where they happen!
 	bs, err := json.Marshal(p1)
 	if err != nil {
-		fmt.Println(err)
+		log.Fatalln("JSON did not marshal:", err)
 	}
 	fmt.Println(string(bs))
 }
