@@ -14,7 +14,7 @@ func (c *customErr) Error() string {
 }
 
 func foo(e error) {
-	fmt.Printf("%v satisfies the error interface\n", e)
+	fmt.Printf("%T satisfies the error interface\n", e)
 }
 
 func main() {
@@ -25,6 +25,5 @@ func main() {
 	}
 
 	foo(&c)
-	fmt.Println(c)
-	fmt.Printf("%T\n", c)
+	fmt.Println(c.Error())
 }
