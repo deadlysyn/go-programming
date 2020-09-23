@@ -14,7 +14,7 @@ import "testing"
 
 // sample passing test
 func TestFoo(t *testing.T) {
-	r := Foo()
+	r := foo()
 	for i := range r {
 		if r[i] != "foo" && r[i] != "bar" {
 			t.Errorf("Want foo/bar got %v", r[i])
@@ -26,6 +26,6 @@ func TestFoo(t *testing.T) {
 // run with `go test -bench=.`
 func BenchmarkBar(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		Bar(1000)
+		bar(1000)
 	}
 }
